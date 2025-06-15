@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water for Life: Learn & Play</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="main-header" style="position:relative;">
+    <button id="menu-btn" style="position:absolute;left:1em;top:50%;transform:translateY(-50%);z-index:1000;background:none;color:#1A237E;border:none;border-radius:6px;padding:0.2em 0.7em;font-size:1.4em;cursor:pointer;line-height:1;">
+      &#9776;
+    </button>
+    <a href="https://www.charitywater.org/donate" target="_blank"
+      style="position:absolute;right:1em;top:50%;transform:translateY(-50%);background:#FFD600;color:#1A237E;font-weight:500;padding:0.8em 1.0em;border-radius:12px;text-decoration:none;box-shadow:0 2px 8px rgba(30,60,120,0.10);font-size:0.95em;z-index:1000;transition:background 0.15s;display:inline-block;font-family:'Segoe UI',Arial,sans-serif;letter-spacing:0.01em;">
+      Donate
+    </a>
+    <div id="menu-panel" style="display:none;position:absolute;left:1em;top:3.5em;z-index:1100;background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(30,60,120,0.10);padding:0.7em 0.5em;min-width:180px;">
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.7em;">
+        <li><a href="#about-us" id="about-link" style="color:#1A237E;text-decoration:none;font-size:0.9em;padding:0.4em 1em;border-radius:6px;transition:background 0.15s;">About Us</a></li>
+        <li><a href="#take-action" id="action-link" style="color:#1A237E;text-decoration:none;font-size:0.9em;padding:0.4em 1em;border-radius:6px;transition:background 0.15s;">Take Action</a></li>
+        <li><a href="#" id="login-link" style="color:#1A237E;text-decoration:none;font-size:0.9em;padding:0.4em 1em;border-radius:6px;transition:background 0.15s;">Login</a></li>
+        <li><a href="#contact-us" id="contact-link" style="color:#1A237E;text-decoration:none;font-size:0.9em;padding:0.4em 1em;border-radius:6px;transition:background 0.15s;">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="logo-box">
+      <img src="waterlogo2.png" alt="Water Charity Logo" class="main-logo">
+    </div>
+  </header>
+  <main class="info-main">
+    <section class="info-section">
+      <h2>Why Water Matters</h2>
+      <p>
+        Clean water is essential for life. Around the world, millions of people face challenges accessing safe water for drinking, cooking, and hygiene. 
+        By learning about water, we can make a difference in our communities and beyond.
+      </p>
+    </section>
+    <section class="info-section">
+      <h2>Did You Know?</h2>
+      <ul>
+        <li>1 in 10 people worldwide lack access to clean water.</li>
+        <li>Children are especially vulnerable to waterborne diseases.</li>
+        <li>Simple choices and good habits can help conserve water every day.</li>
+      </ul>
+    </section>
+    <section class="info-section games-section">
+      <h2>Educational Games</h2>
+      <div class="games-list">
+        <a href="water-warrior.html" class="game-link">
+          <div class="game-card">
+            <img src="waterlogo2.png" alt="Water Warrior Game" class="game-thumb">
+            <div>
+              <h3>Water Warrior</h3>
+              <p>Make choices, survive, and learn about water in this interactive adventure!</p>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="game-link disabled">
+          <div class="game-card">
+            <div class="game-thumb placeholder"></div>
+            <div>
+              <h3>Water Quiz (Coming Soon)</h3>
+              <p>Test your knowledge about water and health!</p>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="game-link disabled">
+          <div class="game-card">
+            <div class="game-thumb placeholder"></div>
+            <div>
+              <h3>Clean Water Puzzle (Coming Soon)</h3>
+              <p>Help bring clean water to the village by solving puzzles.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section id="about-us" class="info-section">
+      <h2>About Us</h2>
+      <p>
+        We are a team dedicated to raising awareness about the importance of clean water and empowering communities to take action. Our mission is to educate, inspire, and support efforts to bring safe water to everyone.
+      </p>
+    </section>
+    <section id="take-action" class="info-section">
+      <h2>Take Action</h2>
+      <p>
+        Want to help? Your donation can make a real difference in providing clean water to those in need.
+      </p>
+      <a href="https://www.charitywater.org/donate" target="_blank" style="display:inline-block;background:#FFD600;color:#1A237E;font-weight:bold;padding:0.7em 1.5em;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(30,60,120,0.10);margin-top:0.5em;">Donate Now</a>
+    </section>
+    <section id="contact-us" class="info-section">
+      <h2>Contact Us</h2>
+      <p>
+        Have questions or want to get in touch? Email us at <a href="mailto:info@waterforlife.org" style="color:#1A237E;text-decoration:underline;">info@waterforlife.org</a>
+      </p>
+    </section>
+    <section class="info-section">
+      <h2>Get Involved</h2>
+      <p>
+        Support water charities, share what you learn, and help make clean water a reality for everyone!
+      </p>
+    </section>
+  </main>
+  <footer class="main-footer">
+    <p>&copy; 2024 Water for Life. Educational content for all ages.</p>
+  </footer>
+  <script>
+    // Menu toggle logic
+    const menuBtn = document.getElementById('menu-btn');
+    const menuPanel = document.getElementById('menu-panel');
+    menuBtn.onclick = () => {
+      menuPanel.style.display = menuPanel.style.display === "none" ? "block" : "none";
+    };
+    // Hide menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuPanel.contains(e.target) && e.target !== menuBtn) {
+        menuPanel.style.display = "none";
+      }
+    });
+    // Smooth scroll for menu links
+    document.getElementById('about-link').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('about-us').scrollIntoView({behavior: "smooth"});
+      menuPanel.style.display = "none";
+    };
+    document.getElementById('action-link').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('take-action').scrollIntoView({behavior: "smooth"});
+      menuPanel.style.display = "none";
+    };
+    document.getElementById('contact-link').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('contact-us').scrollIntoView({behavior: "smooth"});
+      menuPanel.style.display = "none";
+    };
+    document.getElementById('login-link').onclick = function(e) {
+      e.preventDefault();
+      alert("Login functionality coming soon!");
+      menuPanel.style.display = "none";
+    };
+  </script>
+</body>
+</html>

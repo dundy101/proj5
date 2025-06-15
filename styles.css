@@ -1,0 +1,430 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #faf0d8;
+  color: #222;
+  height: 100vh;
+  position: relative;
+  font-weight: 400;
+}
+
+/* Title overlay */
+#title-overlay {
+  position: absolute;
+  top: 2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
+  padding: 1.2em 3em;
+  z-index: 20;
+  text-align: center;
+}
+
+/* Game canvas */
+#game-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: block;
+  z-index: 1;
+  background: transparent;
+}
+
+/* UI overlay */
+#ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+}
+#bars, #game-message {
+  pointer-events: auto;
+}
+
+/* Bars overlay */
+#bars {
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+  background: none;
+  border-radius: 0;
+  padding: 0.7em 1.2em;
+  display: inline-block;
+  z-index: 10;
+  color: #1A237E;
+  font-weight: 400;
+}
+#bars div {
+  margin: 0.2em 0;
+  color: #1A237E;
+}
+
+/* Choices buttons */
+#choices {
+  width: 100vw;
+  position: absolute;
+  bottom: 3vw;
+  left: 0;
+  text-align: center;
+  z-index: 10;
+  margin: 0;
+  pointer-events: auto;
+}
+#choices button {
+  margin: 0.5em;
+  padding: 0.7em 2em;
+  font-size: 1.1em;
+  border-radius: 4px;
+  border: 1px solid #1A237E;
+  background: linear-gradient(90deg, #4DD0E1 0%, #64B5F6 100%);
+  color: #1A237E;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#choices button:hover {
+  background: linear-gradient(90deg, #FFD600 0%, #4DD0E1 100%);
+  color: #1A237E;
+}
+
+/* Game message overlay */
+#game-message {
+  position: absolute;
+  top: 8vw;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
+  color: #FFD600;
+  background: none;
+  border-radius: 0;
+  padding: 0.5em 1.2em;
+  display: inline-block;
+  z-index: 10;
+}
+
+/* Intro overlay styles */
+#intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fafbfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeInIntro 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeInIntro {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.intro-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2em 2em 1.5em 2em;
+  z-index: 10;
+  text-align: center;
+  max-width: 420px;
+  width: 95vw;
+  position: relative;
+  animation: popInIntro 0.8s cubic-bezier(.4,0,.2,1);
+}
+@keyframes popInIntro {
+  from { transform: scale(0.95) translateY(30px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+.intro-content img {
+  display: block;
+  margin: 0 auto 1em auto;
+  border-radius: 50%;
+  background: #F9E4B7;
+}
+
+/* Settings panel */
+#settings-panel {
+  margin-top: 1.2em;
+  background: #F5F7FA;
+  border-radius: 10px;
+  padding: 1.2em 1em 1em 1em;
+  display: none;
+  text-align: left;
+}
+#settings-panel h2 {
+  color: #1A237E;
+  margin-top: 0;
+  font-size: 1.3em;
+}
+#settings-panel button {
+  margin-top: 1em;
+  background: #4DD0E1;
+  color: #1A237E;
+  border: 1px solid #64B5F6;
+  font-size: 1em;
+  border-radius: 6px;
+  padding: 0.6em 1.5em;
+  transition: background 0.18s;
+}
+#settings-panel button:hover {
+  background: #FFD600;
+  color: #1A237E;
+}
+
+/* Main header and logo */
+.main-header {
+  text-align: center;
+  padding: 1.5em 0.7em 1.5em 0.7em;
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+}
+.logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.main-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.main-header h1 {
+  color: #1A237E;
+  font-size: 2.0em;
+  margin: 0.2em 0 0.1em 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.subtitle {
+  color: #4DD0E1;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+}
+
+/* Info main content */
+.info-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em 1em 3em 1em;
+}
+.info-section {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 2.5em;
+  padding: 0 0 2.5em 0;
+  border-bottom: 1px solid #ececec;
+}
+.info-section:last-child {
+  border-bottom: none;
+}
+.info-section h2 {
+  color: #1A237E;
+  margin-top: 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.info-section ul {
+  color: #8D6748;
+  font-size: 1.08em;
+  margin: 1em 0 0 1.5em;
+  font-weight: 400;
+}
+.info-section p {
+  color: #4DD0E1;
+  font-size: 1.08em;
+  font-weight: 400;
+}
+
+/* Games section */
+.games-section {
+  background: none;
+}
+.games-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2em;
+  justify-content: center;
+  margin-top: 1.5em;
+  overflow-x: auto;
+  padding-bottom: 1em;
+}
+.game-link {
+  text-decoration: none;
+  color: inherit;
+  pointer-events: auto;
+}
+.game-link.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.game-card {
+  display: flex;
+  align-items: center;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.5em 0.5em;
+  min-width: 220px;
+  max-width: 320px;
+  border-bottom: 1px solid #ececec;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.game-link:not(.disabled):hover .game-card {
+  background: #f5f7fa;
+  box-shadow: none;
+  transform: none;
+}
+.game-thumb {
+  width: 54px;
+  height: 54px;
+  margin-right: 1.2em;
+  border-radius: 8px;
+  background: #f5f7fa;
+  object-fit: contain;
+  box-shadow: none;
+}
+.game-thumb.placeholder {
+  background: #e0f7fa;
+}
+.game-card h3 {
+  color: #1A237E;
+  margin: 0 0 0.2em 0;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.game-card p {
+  color: #8D6748;
+  margin: 0;
+  font-size: 0.98em;
+  font-weight: 400;
+}
+
+/* Footer */
+.main-footer {
+  text-align: center;
+  color: #8D6748;
+  background: #fff;
+  padding: 1.2em 0 1em 0;
+  font-size: 1em;
+  margin-top: 2em;
+  border-top: 1px solid #ececec;
+}
+
+/* Remove Water Warrior-specific styles below and move to ww.css:
+
+#bars, #bars div, #choices, #choices button, #choices button:hover,
+#game-message, #intro-overlay, .intro-content, .intro-content img,
+#settings-panel, #settings-panel h2, #settings-panel button, #settings-panel button:hover
+
+*/
+
+/* Responsive styles for mobile */
+@media (max-width: 700px) {
+  .main-header {
+    padding: 1em 0.5em 1em 0.5em;
+  }
+  .logo-box {
+    margin-bottom: 0.2em;
+  }
+  .main-logo {
+    width: 70px;
+    height: 70px;
+  }
+  .main-header h1 {
+    font-size: 1.3em;
+  }
+  .subtitle {
+    font-size: 1em;
+  }
+  .info-main {
+    padding: 1em 0.2em 2em 0.2em;
+    max-width: 100vw;
+  }
+  .info-section {
+    padding: 0 0 1.5em 0;
+    margin-bottom: 1.5em;
+  }
+  .games-list {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1.2em;
+    align-items: stretch;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+  .game-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 0.7em 0.5em;
+    border-bottom: 1px solid #ececec;
+  }
+  .game-thumb {
+    width: 44px;
+    height: 44px;
+    margin-right: 0.8em;
+  }
+  #choices {
+    width: 100vw;
+    left: 0;
+    bottom: 1vw;
+  }
+  #choices button {
+    width: 90vw;
+    max-width: 350px;
+    margin: 0.4em auto;
+    font-size: 1em;
+    padding: 0.7em 0.5em;
+    display: block;
+  }
+  #bars {
+    top: 1vw;
+    right: 1vw;
+    padding: 0.5em 0.7em;
+    font-size: 0.95em;
+  }
+  #game-message {
+    top: 12vw;
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+  }
+  #intro-overlay .intro-content {
+    padding: 1.2em 0.5em 1em 0.5em;
+    max-width: 98vw;
+  }
+  /* Header menu and donate button */
+  #menu-btn {
+    left: 0.5em !important;
+    padding: 0.2em 0.5em !important;
+    font-size: 1.2em !important;
+  }
+  a[style*="background:#FFD600"] {
+    right: 0.5em !important;
+    padding: 0.5em 0.8em !important;
+    font-size: 0.95em !important;
+    border-radius: 8px !important;
+  }
+  #menu-panel {
+    left: 0.5em !important;
+    top: 3em !important;
+    min-width: 140px !important;
+    padding: 0.5em 0.2em !important;
+  }
+}
