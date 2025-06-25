@@ -9,9 +9,16 @@
   <link rel="stylesheet" href="ww.css">
 </head>
 <body>
+  <header class="main-header" style="position:relative;">
+    <a href="index.html" id="back-btn" style="position:absolute;left:1em;top:50%;transform:translateY(-50%);z-index:1000;background:none;color:#1A237E;border:none;border-radius:6px;padding:0.2em 0.7em;font-size:1.4em;cursor:pointer;line-height:1;text-decoration:none;">
+      &#8592;
+    </a>
+    <div class="logo-box" style="text-align:center;">
+      <img src="waterlogo2.png" alt="Water Charity Logo" class="main-logo" style="height:48px;vertical-align:middle;">
+    </div>
+  </header>
   <div class="center-title" style="max-width:100vw;overflow-x:hidden;">
-    <h1 class="water-warrior" style="font-size:2.1em;word-break:break-word;">Water Warrior: Everyday Choices</h1>
-  </div>
+    
   <div id="game-menu-overlay" class="menu-overlay">
     <div class="menu-content">
       <img src="waterwarriorlogo.png" alt="Water Warrior Logo" class="menu-logo">
@@ -22,9 +29,12 @@
       <div style="margin-top:0.1em;color:#b0b0b0;font-size:0.98em;letter-spacing:0.01em;">
         A game by charity: water
       </div>
+      <div id="menu-extra" class="menu-extra"></div>
     </div>
   </div>
+  <audio id="audio-death" src="death.mp3" preload="auto"></audio>
+  <audio id="audio-victory" src="victory.mp3" preload="auto"></audio>
+  <audio id="audio-warning" src="warning.mp3" preload="auto"></audio>
   <script src="ww.js"></script>
 </body>
-</html>
 </html>
